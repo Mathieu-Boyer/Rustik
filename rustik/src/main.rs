@@ -6,8 +6,13 @@ fn main() {
     println!("Hello, world!");
 
 
-    let cube = Cube::new();
+    let mut cube = Cube::new();
 
     cube.display();
     cube.show_slots();
+
+    cube.switch_slots(6, 11);
+
+    cube.switch_slots(6, 11);
+    
 }

@@ -5,7 +5,7 @@ impl Cube{
         println!("{:064b}", self.edges);
     }
 
-    fn slot_from_int(&self, slot: i64) -> String {
+    pub fn slot_from_int(&self, slot: i64) -> String {
         String::from(match slot {
             0 => "UF",
             1 => "UR",
