@@ -8,6 +8,6 @@ impl Cube {
         let chunk_at_slot2 : i64 = (self.edges >> (slot_id2 * 5)) & mask;
 
         self.edges &= !combined_masks;
-        self.edges |= (chunk_at_slot2 << (5 * slot_id1)) | (chunk_at_slot1 << (5 * slot_id2));
+        self.edges |= (chunk_at_slot2 << (5 * slot_id1)) | (chunk_at_slot1 << (5 * slot_id2)) ;
     }
 }
