@@ -1,5 +1,6 @@
 pub struct Cube {
-    pub edges : i64
+    pub edges : i64,
+    pub corners : i64
 }
 
 
@@ -13,8 +14,21 @@ impl Cube {
 
             compute_solved_edges |= chunk << (5 * i);
         }
+
+        let mut compute_solved_corners: i64 = 0;
+        for i in 0..8{
+            let slot =  i << 2;
+            let orientation = 0;
+
+            let chunk = slot | orientation;
+
+            compute_solved_corners |= chunk << (5 * i)
+        }
+
+
         Cube {
-            edges : compute_solved_edges
+            edges : compute_solved_edges,
+            corners : compute_solved_corners
         }
     }
 }

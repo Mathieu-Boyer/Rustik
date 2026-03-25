@@ -2,7 +2,7 @@ use crate::cube::core::Cube;
 use crate::cube::globals::AFFECTED_EDGE_SLOTS;
 impl Cube {
 
-    fn build_move_mask(affected_slots: [i64; 4]) -> i64 {
+    pub fn build_move_mask(affected_slots: [i64; 4]) -> i64 {
         let mask : i64 = 0b11111;
         let mut move_mask = 0;
         for i in 0..4{

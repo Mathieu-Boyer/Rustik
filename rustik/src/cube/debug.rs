@@ -5,7 +5,21 @@ impl Cube{
         println!("{:064b}", self.edges);
     }
 
-    pub fn slot_from_int(&self, slot: i64) -> String {
+
+    pub fn corners_slot_from_int(&self, slot: i64) -> String {
+        String::from(match slot {
+            0 => "UFR",
+            1 => "UBR",
+            2 => "UBL",
+            3 => "UFL",
+            4 => "DFR",
+            5 => "DBR",
+            6 => "DBL",
+            7 => "DFL",
+            _ => {""}
+        })
+    }
+    pub fn edges_slot_from_int(&self, slot: i64) -> String {
         String::from(match slot {
             0 => "UF",
             1 => "UR",
@@ -22,7 +36,7 @@ impl Cube{
             _ => {""}
         })
     }
-    pub fn show_slots(&self) {
+    pub fn show_edges_slots(&self) {
 
         println!("------ EDGES ------");
         for i in 0..12{
@@ -33,10 +47,22 @@ impl Cube{
 
             let color = if slot == i { "\x1b[32m"} else {"\x1b[31m"};
 
-            print!("{} | {}{}[{}] \x1b[0m|",i,color, self.slot_from_int(i) , self.slot_from_int(slot));
-
-
+            print!("{} | {}{}[{}] \x1b[0m|",i,color, self.edges_slot_from_int(i) , self.edges_slot_from_int(slot));
             print!(" FlipState : {} |\n", is_flipped);
+        }
+    }
+
+    pub fn show_corners_slots(&self){
+        println!("------ CORNERS ------");
+        for i in 0..8 {
+            let mask = 0b11111;
+            let chunk = (self.corners >> (i * 5)) & mask;
+            let slot = chunk >> 2;
+            let orientation = chunk & 0b11;
+
+            let color = if slot == i { "\x1b[32m"} else {"\x1b[31m"};
+            print!("{} | {}{}[{}] \x1b[0m|",i,color, self.corners_slot_from_int(i) , self.corners_slot_from_int(slot));
+            print!(" Orientation : {} |\n", orientation);
         }
     }
 }
