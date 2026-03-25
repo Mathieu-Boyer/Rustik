@@ -9,10 +9,13 @@ fn main() {
     let mut cube = Cube::new();
 
     cube.display();
-    cube.show_slots();
 
-    cube.switch_slots(6, 11);
+    cube.apply_move_on_edges(0, false);
+    cube.apply_move_on_edges(5, false);
+    // cube.apply_move_on_edges(0, false);
+    // cube.apply_move_on_edges(0, false);
 
-    cube.switch_slots(6, 11);
+     cube.show_slots();
+
     
 }
