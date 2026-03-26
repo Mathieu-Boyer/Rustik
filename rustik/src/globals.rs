@@ -1,28 +1,40 @@
-
-
+#[derive(Clone)]
 pub struct Move {
     pub face : usize,
-    pub is_clockwise : bool
+    pub is_clockwise : bool,
+    pub name : &'static str,
+    pub num : i8
 }
 
-pub const MOVE_LIST : [Move; 12] = [
-    Move {face : 0, is_clockwise : true},
-    Move {face : 0, is_clockwise : false},
+pub const MOVE_LIST : [Move; 18] = [
+    Move {face : 0, is_clockwise : true, name : "U", num : 1},
+    Move {face : 0, is_clockwise : false, name : "U'", num : 1},
+    Move {face : 0, is_clockwise : true, name : "U2", num : 2},
 
-    Move {face : 1, is_clockwise : true},
-    Move {face : 1, is_clockwise : false},
+    Move {face : 1, is_clockwise : true, name : "D", num : 1},
+    Move {face : 1, is_clockwise : false , name : "D'", num : 1},
+    Move {face : 1, is_clockwise : true, name : "D2", num : 2},
+    
 
-    Move {face : 2, is_clockwise : true},
-    Move {face : 2, is_clockwise : false},
+    Move {face : 2, is_clockwise : true , name : "F", num : 1},
+    Move {face : 2, is_clockwise : false , name : "F'", num : 1},
+    Move {face : 2, is_clockwise : true, name : "F2", num : 2},
+    
 
-    Move {face : 3, is_clockwise : true},
-    Move {face : 3, is_clockwise : false},
+    Move {face : 3, is_clockwise : true, name : "B", num : 1},
+    Move {face : 3, is_clockwise : false, name : "B'", num : 1},
+    Move {face : 3, is_clockwise : true, name : "B2", num : 2},
+    
 
-    Move {face : 4, is_clockwise : true},
-    Move {face : 4, is_clockwise : false},
+    Move {face : 4, is_clockwise : true , name : "R", num : 1},
+    Move {face : 4, is_clockwise : false, name : "R'", num : 1},
+    Move {face : 4, is_clockwise : true, name : "R2", num : 2},
+    
 
-    Move {face : 5, is_clockwise : true},
-    Move {face : 5, is_clockwise : false},
+    Move {face : 5, is_clockwise : true , name : "L", num : 1},
+    Move {face : 5, is_clockwise : false, name : "L'", num : 1},
+    Move {face : 5, is_clockwise : true, name : "L2", num : 2},
+    
 ];
 
 pub const AFFECTED_EDGE_SLOTS : [[i64; 4]; 6] = [

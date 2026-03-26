@@ -1,6 +1,9 @@
 pub struct Cube {
     pub edges : i64,
-    pub corners : i64
+    pub corners : i64,
+
+    pub solved_edges : i64,
+    pub solved_corners : i64
 }
 
 
@@ -28,8 +31,16 @@ impl Cube {
 
         Cube {
             edges : compute_solved_edges,
-            corners : compute_solved_corners
+            corners : compute_solved_corners,
+
+            solved_edges : compute_solved_edges,
+            solved_corners : compute_solved_corners
         }
+    }
+
+
+    pub fn is_solved(&self) -> bool{
+        (self.edges == self.solved_edges) && (self.corners == self.solved_corners)
     }
 }
 

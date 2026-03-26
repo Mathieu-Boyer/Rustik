@@ -10,10 +10,10 @@ impl Cube {
         for i in 0..8 {
             let chunk = (self.corners >> (5 * i)) & mask;
             if i != (chunk >> 2) { misplaced_corners += 1}
-            if (chunk & 0b11) == 1 {misoriented_corners += 1}
+            if (chunk & 0b11) != 0 {misoriented_corners += 1}
         }
 
-        misplaced_corners.max(misoriented_corners) / 4
+        (misplaced_corners).max(misoriented_corners)
     }
     pub fn edge_heuristics(&self) -> i64{
         let mut misplaced_edges = 0;
@@ -27,10 +27,10 @@ impl Cube {
             if (chunk & 1) == 1 {flipped_edges += 1}
         }
 
-        misplaced_edges.max(flipped_edges) / 4
+        (misplaced_edges).max(flipped_edges) 
     }
 
-    pub fn heuristics(&self) -> i64{
-        self.edge_heuristics().max(self.corner_heuristics())
+    pub fn heuristics(&self) -> usize{
+        (self.edge_heuristics() + (self.corner_heuristics())) as usize
     }
 }
