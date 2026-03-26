@@ -1,6 +1,11 @@
 use crate::cube::core::Cube;
 
 impl Cube {
+
+    pub fn undo(&mut self, move_face: usize, move_is_clockwise: bool) {
+        self.apply_move( move_face, !move_is_clockwise)
+    }
+    
     pub fn apply_move(&mut self, move_face: usize, move_is_clockwise: bool){
         self.apply_move_on_edges(move_face, move_is_clockwise);
         self.apply_move_on_corners(move_face, move_is_clockwise);

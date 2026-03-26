@@ -3,6 +3,8 @@ use crate::cube::core::Cube;
 impl Cube{
     pub fn display (&self){
         println!("{:064b}", self.edges);
+        self.show_edges_slots();
+        self.show_corners_slots();
     }
 
 

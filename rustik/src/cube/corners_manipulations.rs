@@ -1,5 +1,5 @@
 use crate::cube::core::Cube;
-use crate::cube::globals::AFFECTED_CORNERS_SLOTS;
+use crate::globals::AFFECTED_CORNERS_SLOTS;
 
 impl Cube {
     pub fn build_move_mask(affected_slots: [i64; 4]) -> i64 {

@@ -17,7 +17,11 @@
       [3, 7 , 6 , 2],  // L
  ];
 
- 
+
+ pub const FACES : [usize; 6] = [
+     0, 1, 2, 3, 4, 5
+ ];
+
  pub const OPPOSITE_FACE : [usize; 6] = [
       1, 0, 3, 2, 5, 4
  ];
