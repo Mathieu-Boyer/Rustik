@@ -10,6 +10,7 @@ impl Solver {
         
     }
     pub fn solve(&mut self, cube : &mut Cube) {
-        cube.apply_move(0, true)
+        cube.apply_move(0, true);
+        cube.edge_heuristics();
     }
 }

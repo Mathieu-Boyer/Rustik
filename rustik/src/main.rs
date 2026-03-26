@@ -12,4 +12,5 @@ fn main() {
     solver.solve(&mut cube);
 
     cube.display();
+    
 }
