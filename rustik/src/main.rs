@@ -19,6 +19,7 @@ fn main() {
     cube.apply_move(&5, &true, &1);
     cube.apply_move(&1, &false, &1);
     cube.apply_move(&3, &true, &1);
+    cube.apply_move(&5, &true, &1);
     solver.solve(&mut cube);
 
     cube.display();
