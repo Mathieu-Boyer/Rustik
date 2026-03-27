@@ -33,7 +33,7 @@ impl Cube {
             self.corners >> (5 * slots[2]) & mask,
             self.corners >> (5 * slots[3]) & mask,
         ];
-        if move_face == 4 || move_face == 5{
+        if !(move_face == 0 || move_face == 1){
             Self::apply_deltas(&mut chunks);
         }
 
