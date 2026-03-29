@@ -5,7 +5,7 @@ impl Cube {
         let mask : i64 = 0b11111;
         let slots = AFFECTED_EDGE_SLOTS[move_face];
         let move_mask = Self::build_move_mask(slots);
-        let flipping_move = (move_face <= 1) as i64;
+        let flipping_move = (move_face > 1) as i64;
         let chunks : [i64; 4] = [
             ((self.edges >> (slots[0] * 5)) & mask) ^ flipping_move,
             ((self.edges >> (slots[1] * 5)) & mask) ^ flipping_move,

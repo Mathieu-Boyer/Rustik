@@ -27,7 +27,7 @@ impl Cube {
             if (chunk & 1) == 1 {flipped_edges += 1}
         }
 
-        (misplaced_edges).max(flipped_edges) 
+        (misplaced_edges).max(flipped_edges)
     }
 
     pub fn heuristics(&self) -> usize{

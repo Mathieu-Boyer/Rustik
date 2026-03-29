@@ -4,6 +4,8 @@ use crate::solver::core::Solver;
 pub mod cube;
 pub mod globals;
 pub mod solver;
+use std::time::Instant;
+
 
 fn main() {
     let mut cube = Cube::new();
@@ -19,8 +21,16 @@ fn main() {
     cube.apply_move(&5, &true, &1);
     cube.apply_move(&1, &false, &1);
     cube.apply_move(&3, &true, &1);
+    cube.apply_move(&0, &true, &1);
+    cube.apply_move(&2, &true, &1);
+    cube.apply_move(&2, &true, &1);
+    cube.apply_move(&1, &true, &1);
+    // cube.apply_move(&1, &false, &1);
+    cube.apply_move(&1, &false, &4);
+    
+    let start = Instant::now();
     solver.solve(&mut cube);
-
+    println!("{:?}", start.elapsed());
     cube.display();
     
 }
